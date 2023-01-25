@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ScreenDetox2</string>
+    <string name="allUsedDuration">사용 시간</string>
 </resources>
