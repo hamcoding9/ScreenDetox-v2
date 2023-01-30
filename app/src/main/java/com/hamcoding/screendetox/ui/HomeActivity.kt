@@ -1,4 +1,4 @@
-package com.example.screendetox2.ui
+package com.hamcoding.screendetox.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
