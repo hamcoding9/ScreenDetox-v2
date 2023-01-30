@@ -3,4 +3,6 @@
     <string name="allUsageDuration">사용 시간</string>
     <string name="rankTitle">Ranking Board</string>
     <string name="allCardRankTitle">RANK</string>
+    <string name="allNavRank">랭킹</string>
+    <string name="allNavStats">통계</string>
 </resources>
