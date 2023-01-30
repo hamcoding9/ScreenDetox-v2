@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">ScreenDetox2</string>
-    <string name="allUsedDuration">사용 시간</string>
+    <string name="allUsageDuration">사용 시간</string>
+    <string name="rankTitle">Ranking Board</string>
+    <string name="allCardRankTitle">RANK</string>
 </resources>
