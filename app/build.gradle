@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.screendetox2'
+    namespace 'com.hamcoding.screendetox'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.screendetox2"
+        applicationId "'com.hamcoding.screendetox'"
         minSdk 24
         targetSdk 33
         versionCode 1

@@ -1,4 +1,4 @@
-package com.example.screendetox2
+package com.hamcoding.screendetox
 
 import org.junit.Test
 
