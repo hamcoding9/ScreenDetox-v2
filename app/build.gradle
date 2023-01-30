@@ -8,7 +8,7 @@ android {
     compileSdk 33
 
     defaultConfig {
-        applicationId "'com.hamcoding.screendetox'"
+        applicationId "com.hamcoding.screendetox"
         minSdk 24
         targetSdk 33
         versionCode 1
