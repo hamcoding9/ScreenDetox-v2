@@ -8,10 +8,7 @@ import com.hamcoding.screendetox.data.AppRepository
 
 class StatsViewModel(private val appRepository: AppRepository) : ViewModel() {
 
-    private val _items = MutableLiveData<List<App>>()
-    val items: LiveData<List<App>> = _items
+    val appList = appRepository.getAppList()
+    val totalUsage = appRepository.getTotalTime()
 
-    fun getAppList() {
-        _items.value = appRepository.getAppList()
-    }
 }

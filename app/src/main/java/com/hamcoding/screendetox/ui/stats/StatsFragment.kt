@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import com.hamcoding.screendetox.R
 import com.hamcoding.screendetox.data.AppRepository
 import com.hamcoding.screendetox.databinding.FragmentStatsBinding
@@ -14,14 +15,7 @@ import com.hamcoding.screendetox.ui.ViewModelFactory
 class StatsFragment : Fragment() {
     private var _binding: FragmentStatsBinding? = null
     private val binding get() = _binding!!
-    private lateinit var viewModel: StatsViewModel
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        val appRepository = AppRepository()
-        viewModel = StatsViewModel(appRepository)
-        Log.d("Stats", "${appRepository.getTotalTime()}")
-    }
+    private val viewModel: StatsViewModel by viewModels { ViewModelFactory() }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -40,10 +34,8 @@ class StatsFragment : Fragment() {
     private fun setLayout() {
         val adapter = AppAdapter()
         binding.rvStats.adapter = adapter
-        viewModel.getAppList()
-        viewModel.items.observe(viewLifecycleOwner) { appList ->
-            adapter.submitList(appList)
-        }
+        binding.statsTopBoard.tvUsageInfo.text = viewModel.totalUsage
+        adapter.submitList(viewModel.appList)
     }
 
     override fun onDestroyView() {
