@@ -17,6 +17,7 @@ class AppAdapter() : ListAdapter<App, AppAdapter.ViewHolder>(diffUtil) {
             binding.tvAppName.text = app.appName
             binding.tvAppUsage.text = app.usageDuration
             binding.progressBar.progress = app.usagePercentage
+            binding.ivAppIcon.setImageDrawable(app.appIcon)
         }
     }
 
