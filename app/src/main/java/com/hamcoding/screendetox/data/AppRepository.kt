@@ -1,5 +1,6 @@
 package com.hamcoding.screendetox.data
 
+import com.hamcoding.screendetox.util.ConvertType
 import com.hamcoding.screendetox.util.TimeConverter.getMillisBreakdown
 
 class AppRepository {
@@ -11,7 +12,7 @@ class AppRepository {
     }
 
     fun getTotalTime(): String {
-        return getMillisBreakdown(usageProcessor.totalTime)
+        return getMillisBreakdown(usageProcessor.totalTime, ConvertType.KR)
     }
 
 }
