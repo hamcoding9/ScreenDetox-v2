@@ -69,7 +69,7 @@
                     style="@style/allCardInfo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="5dp"
                     android:gravity="center"
                     tools:text="2" />
 
@@ -78,11 +78,26 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ProgressBar
+                    android:id="@+id/progressBarUser"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/circular_progressbar_all_background"
+                    android:indeterminateDrawable="@drawable/circular_progressbar_all_progress"
+                    android:max="24"
+                    android:progress="2" />
 
                 <TextView
+                    style="@style/allCardInfo.Large"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/allExampleUserName" />
 
             </LinearLayout>
 
@@ -105,7 +120,7 @@
                     style="@style/allCardInfo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="5dp"
                     android:gravity="center"
                     tools:text="09시간 05분" />
 

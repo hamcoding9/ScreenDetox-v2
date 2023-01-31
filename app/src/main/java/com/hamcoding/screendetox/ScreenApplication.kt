@@ -1,7 +1,6 @@
 package com.hamcoding.screendetox
 
 import android.app.Application
-import com.hamcoding.screendetox.data.AppContainer
 import com.hamcoding.screendetox.data.UsageProcessor
 import com.hamcoding.screendetox.data.UsageStorage
 
