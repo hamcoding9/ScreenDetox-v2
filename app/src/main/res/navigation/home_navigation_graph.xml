@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_navigation"
+    app:startDestination="@id/navigation_rank">
+
+    <fragment
+        android:id="@+id/navigation_rank"
+        android:name="com.hamcoding.screendetox.ui.rank.RankFragment"
+        android:label="fragment_rank"
+        tools:layout="@layout/fragment_rank" />
+    <fragment
+        android:id="@+id/navigation_stats"
+        android:name="com.hamcoding.screendetox.ui.stats.StatsFragment"
+        android:label="StatsFragment"
+        tools:layout="@layout/fragment_stats" />
+
+</navigation>

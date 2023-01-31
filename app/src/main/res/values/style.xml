@@ -29,9 +29,13 @@
         <item name="android:textSize">16sp</item>
     </style>
 
+    <style name="allCardInfo.Large">
+        <item name="android:textSize">20sp</item>
+    </style>
+
     <style name="statsInfo">
         <item name="android:textColor">@color/black</item>
-        <item name="android:textSize">10sp</item>
+        <item name="android:textSize">11sp</item>
     </style>
 
 </resources>
