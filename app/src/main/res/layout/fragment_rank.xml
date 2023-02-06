@@ -8,14 +8,29 @@
         android:layout_height="match_parent"
         tools:context="com.hamcoding.screendetox.ui.rank.RankFragment">
 
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/rankTopBar"
+            android:layout_width="0dp"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/allPrimary"
+            app:layout_constraintBottom_toTopOf="@id/rankTopBoard"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="@string/rankTitle"
+            app:titleCentered="true"
+            app:titleTextAppearance="@style/rankTitle"
+            app:titleTextColor="@color/white" />
+
         <include
             android:id="@+id/rankTopBoard"
             layout="@layout/view_all_top_board"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/rvRank"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:title="@{`Ranking Board`}" />
+            app:layout_constraintTop_toBottomOf="@id/rankTopBar"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvRank"
