@@ -17,6 +17,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:menu="@menu/rank_app_bar_menu"
+            app:navigationIcon="@drawable/ic_rank_menu"
             app:title="@string/rankTitle"
             app:titleCentered="true"
             app:titleTextAppearance="@style/rankTitle"
@@ -30,7 +32,7 @@
             app:layout_constraintBottom_toTopOf="@id/rvRank"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/rankTopBar"/>
+            app:layout_constraintTop_toBottomOf="@id/rankTopBar" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvRank"

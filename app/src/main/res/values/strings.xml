@@ -7,4 +7,6 @@
     <string name="allNavRank">랭킹</string>
     <string name="allNavStats">통계</string>
     <string name="allExampleUserName">코니</string>
+    <string name="rank_menu_notification">notification</string>
+    <string name="rankNaviAddFriend">이메일로 친구 추가</string>
 </resources>
