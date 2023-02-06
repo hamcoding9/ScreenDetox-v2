@@ -1,29 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <include
-        android:id="@+id/statsTopBoard"
-        layout="@layout/view_all_top_board"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvStats"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="13dp"
-        android:layout_marginEnd="13dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/statsTopBoard"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:listitem="@layout/item_stats" />
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/statsTopBar"
+            android:layout_width="0dp"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/allPrimary"
+            app:layout_constraintBottom_toTopOf="@id/statsTopBoard"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="@string/statsTitle"
+            app:titleCentered="true"
+            app:titleTextAppearance="@style/rankTitle"
+            app:titleTextColor="@color/white" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <include
+            android:id="@+id/statsTopBoard"
+            layout="@layout/view_all_top_board"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/rvStats"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/statsTopBoard" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvStats"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="13dp"
+            android:layout_marginEnd="13dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/statsTopBoard"
+            tools:listitem="@layout/item_stats" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -2,8 +2,11 @@
     <string name="app_name">ScreenDetox2</string>
     <string name="allUsageDuration">사용 시간</string>
     <string name="rankTitle">Ranking Board</string>
+    <string name="statsTitle">Usage Board</string>
     <string name="allCardRankTitle">RANK</string>
     <string name="allNavRank">랭킹</string>
     <string name="allNavStats">통계</string>
     <string name="allExampleUserName">코니</string>
+    <string name="rank_menu_notification">notification</string>
+    <string name="rankNaviAddFriend">이메일로 친구 추가</string>
 </resources>
