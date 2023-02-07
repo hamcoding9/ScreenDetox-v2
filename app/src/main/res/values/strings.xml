@@ -9,4 +9,9 @@
     <string name="allExampleUserName">코니</string>
     <string name="rank_menu_notification">notification</string>
     <string name="rankNaviAddFriend">이메일로 친구 추가</string>
+    <string name="requestFriend">친구 요청</string>
+    <string name="requestFriendHint">이메일 주소</string>
+    <string name="requestFriendFail">다시 입력해주세요</string>
+    <string name="requestFriendPositiveBtn">확인</string>
+    <string name="RequestFrendNegativeBtn">취소</string>
 </resources>

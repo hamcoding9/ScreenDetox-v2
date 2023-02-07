@@ -11,4 +11,5 @@
     <color name="allSecondary">#FFCFD9FF</color>
     <color name="allSecondaryVariant">#FF869EF3</color>
     <color name="allGray">#FFD9D9D9</color>
+    <color name="allRed">#F44336</color>
 </resources>
