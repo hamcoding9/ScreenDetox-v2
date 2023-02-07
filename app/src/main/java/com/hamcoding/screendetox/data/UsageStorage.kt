@@ -43,11 +43,13 @@ object UsageStorage {
             }
         }
 
-        val lastEvent = eventList[eventList.size - 1]
-        if (lastEvent.eventType == UsageEvents.Event.ACTIVITY_RESUMED) {
-            val diff = System.currentTimeMillis() - lastEvent.timeStamp
-            val prev = _usageMap[lastEvent.packageName] ?: 0
-            _usageMap[lastEvent.packageName] = prev + diff
+        if (eventList.size > 1) {
+            val lastEvent = eventList[eventList.size - 1]
+            if (lastEvent.eventType == UsageEvents.Event.ACTIVITY_RESUMED) {
+                val diff = System.currentTimeMillis() - lastEvent.timeStamp
+                val prev = _usageMap[lastEvent.packageName] ?: 0
+                _usageMap[lastEvent.packageName] = prev + diff
+            }
         }
     }
 }
