@@ -1,20 +1,25 @@
 package com.hamcoding.screendetox.ui.rank
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.*
-import android.view.View.OnClickListener
 import android.widget.EditText
 import android.widget.PopupMenu
-import androidx.core.view.MenuHost
-import androidx.core.view.MenuProvider
-import androidx.core.view.marginStart
-import androidx.databinding.adapters.ViewBindingAdapter.setClickListener
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 import com.hamcoding.screendetox.R
+import com.hamcoding.screendetox.data.RequestInfo
 import com.hamcoding.screendetox.databinding.FragmentRankBinding
+import com.hamcoding.screendetox.ui.notification.NotificationActivity
 
 class RankFragment : Fragment() {
 
@@ -47,7 +52,7 @@ class RankFragment : Fragment() {
         binding.rankTopBar.setOnMenuItemClickListener {
             when (it.itemId) {
                 R.id.rank_notification -> {
-                    //TODO("notification 처리")
+                    startActivity(Intent(activity, NotificationActivity::class.java))
                     Log.d("랭킹 화면", "notification 클릭")
                     true
                 }
@@ -69,7 +74,6 @@ class RankFragment : Fragment() {
         popup.setOnMenuItemClickListener { menuItem: MenuItem ->
             when (menuItem.itemId) {
                 R.id.rankNaviAddFriend -> {
-                    Log.d("랭킹 화면", "Add Friend 메뉴 클릭")
                     showDialogAddFriend()
                     true
                 }
@@ -80,19 +84,7 @@ class RankFragment : Fragment() {
     }
 
     private fun showDialogAddFriend() {
-        MaterialAlertDialogBuilder(requireContext())
-            .setTitle("친구 요청")
-            .setView(EditText(requireContext()).apply {
-                hint = "이메일 주소"
-            })
-            .setPositiveButton("확인") { dialog, which ->
-                Log.d("랭킹화면", "이메일 주소 입력 후 확인 클릭")
-                //TODO("친구 신청하는 로직 추가")
-            }
-            .setNegativeButton("취소") { dialog, which ->
-
-            }
-            .show()
+        findNavController().navigate(R.id.action_navigation_rank_to_dialogRequestFriend)
     }
 
     override fun onDestroyView() {

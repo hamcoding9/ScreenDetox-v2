@@ -9,11 +9,29 @@
         android:id="@+id/navigation_rank"
         android:name="com.hamcoding.screendetox.ui.rank.RankFragment"
         android:label="fragment_rank"
-        tools:layout="@layout/fragment_rank" />
+        tools:layout="@layout/fragment_rank">
+        <action
+            android:id="@+id/action_navigation_rank_to_dialogRequestFriend"
+            app:destination="@id/dialogRequestFriend" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_stats"
         android:name="com.hamcoding.screendetox.ui.stats.StatsFragment"
         android:label="StatsFragment"
         tools:layout="@layout/fragment_stats" />
+    <dialog
+        android:id="@+id/dialogRequestFriend"
+        android:name="com.hamcoding.screendetox.ui.dialogs.DialogRequestFriend"
+        android:label="DialogRequestFriend"
+        tools:layout="@layout/dialog_request_friend" >
+        <action
+            android:id="@+id/action_dialogRequestFriend_to_dialogRequestFriendFail"
+            app:destination="@id/dialogRequestFriendFail" />
+    </dialog>
+    <dialog
+        android:id="@+id/dialogRequestFriendFail"
+        android:name="com.hamcoding.screendetox.ui.dialogs.DialogRequestFriendFail"
+        android:label="DialogRequestFriendFail"
+        tools:layout="@layout/dialog_request_friend_fail"/>
 
 </navigation>
