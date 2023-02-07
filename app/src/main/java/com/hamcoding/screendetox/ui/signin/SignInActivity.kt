@@ -20,9 +20,11 @@ import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.hamcoding.screendetox.BuildConfig
 import com.hamcoding.screendetox.R
+import com.hamcoding.screendetox.data.User
 import com.hamcoding.screendetox.databinding.ActivitySignInBinding
 import com.hamcoding.screendetox.ui.HomeActivity
 
@@ -57,6 +59,7 @@ class SignInActivity : AppCompatActivity() {
                             .addOnCompleteListener(this) { task ->
                                 if (task.isSuccessful) {
                                     val user = auth.currentUser
+                                    registerUserInfo()
                                     moveToHomeScreen()
                                 } else {
                                     Log.w(
@@ -111,6 +114,7 @@ class SignInActivity : AppCompatActivity() {
                         .addOnCompleteListener(this) { task ->
                             if (task.isSuccessful) {
                                 val user = auth.currentUser
+                                registerUserInfo()
                                 moveToHomeScreen()
                             } else {
                                 Log.w(
@@ -126,7 +130,6 @@ class SignInActivity : AppCompatActivity() {
             e.printStackTrace()
         }
     }
-
 
     private fun displayLegacySignIn() {
         gso = GoogleSignInOptions.Builder()
@@ -154,6 +157,14 @@ class SignInActivity : AppCompatActivity() {
     private fun moveToHomeScreen() {
         startActivity(Intent(this, HomeActivity::class.java))
         finish()
+    }
+
+    private fun registerUserInfo() {
+        val userRef = Firebase.database.reference.child("users")
+        val uid = auth.currentUser?.uid!!
+        val email = auth.currentUser?.email!!.toString()
+        val user = User(email, "코니Test", null)
+        userRef.child(uid).setValue(user)
     }
 
 }
