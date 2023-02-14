@@ -74,7 +74,7 @@ class RankFragment : Fragment() {
         popup.setOnMenuItemClickListener { menuItem: MenuItem ->
             when (menuItem.itemId) {
                 R.id.rankNaviAddFriend -> {
-                    showDialogAddFriend()
+                    showDialogRequestFriend()
                     true
                 }
                 else -> false
@@ -83,7 +83,7 @@ class RankFragment : Fragment() {
         popup.show()
     }
 
-    private fun showDialogAddFriend() {
+    private fun showDialogRequestFriend() {
         findNavController().navigate(R.id.action_navigation_rank_to_dialogRequestFriend)
     }
 

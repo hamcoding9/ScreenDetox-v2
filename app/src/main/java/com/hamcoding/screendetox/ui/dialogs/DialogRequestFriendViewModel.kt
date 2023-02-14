@@ -1,11 +1,12 @@
 package com.hamcoding.screendetox.ui.dialogs
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.google.android.gms.tasks.Tasks.await
 import com.hamcoding.screendetox.data.DatabaseRepository
-import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
 class DialogRequestFriendViewModel : ViewModel() {
 
@@ -13,7 +14,7 @@ class DialogRequestFriendViewModel : ViewModel() {
 
     private val _isCancel = MutableLiveData<Boolean>()
     private val _isSubmit = MutableLiveData<Boolean>()
-    val _isInvalidEmail = MutableLiveData<Boolean>()
+    private val _isInvalidEmail = MutableLiveData<Boolean>()
 
     val isCancel: LiveData<Boolean> = _isCancel
     val isSubmit: LiveData<Boolean> = _isSubmit
@@ -26,15 +27,20 @@ class DialogRequestFriendViewModel : ViewModel() {
     }
 
     fun onSubmitClick() {
-        if (!emailText.value.isNullOrEmpty()) {
-            if(dbRepository.requestFriend(emailText.value!!)) {
-                _isSubmit.value = true
-            } else {
-                // TODO 친구 찾을 수 없는 경우 처리
-                _isInvalidEmail.value = true
+        viewModelScope.launch {
+            dbRepository.requestFriend(emailText.value!!)
+            viewModelScope.launch {
+                dbRepository.isEmailNotExist.collect { isEmailNotExist ->
+                    if (isEmailNotExist) {
+                        _isInvalidEmail.value = true
+                    }
+                }
             }
-        } else {
-            _isInvalidEmail.value = true
+            dbRepository.isEmailExist.collect { isEmailExist ->
+                if (isEmailExist) {
+                    _isSubmit.value = true
+                }
+            }
         }
     }
 }

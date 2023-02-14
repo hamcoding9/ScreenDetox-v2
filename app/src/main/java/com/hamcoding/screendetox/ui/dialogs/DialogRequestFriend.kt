@@ -35,10 +35,12 @@ class DialogRequestFriend : DialogFragment() {
             findNavController().popBackStack()
         }
         viewModel.isSubmit.observe(viewLifecycleOwner) {
-            findNavController().popBackStack()
+            findNavController().navigate(R.id.action_dialogRequestFriend_to_dialogRequestFriendSuccess)
         }
-        viewModel.isInvalidEmail.observe(viewLifecycleOwner) {
-            findNavController().navigate(R.id.action_dialogRequestFriend_to_dialogRequestFriendFail)
+        viewModel.isInvalidEmail.observe(viewLifecycleOwner) { isInvalidEmail ->
+            if (isInvalidEmail) {
+                findNavController().navigate(R.id.action_dialogRequestFriend_to_dialogRequestFriendFail)
+            }
         }
     }
 

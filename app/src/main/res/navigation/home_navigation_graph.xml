@@ -23,15 +23,27 @@
         android:id="@+id/dialogRequestFriend"
         android:name="com.hamcoding.screendetox.ui.dialogs.DialogRequestFriend"
         android:label="DialogRequestFriend"
-        tools:layout="@layout/dialog_request_friend" >
+        tools:layout="@layout/dialog_request_friend">
         <action
             android:id="@+id/action_dialogRequestFriend_to_dialogRequestFriendFail"
             app:destination="@id/dialogRequestFriendFail" />
+        <action
+            android:id="@+id/action_dialogRequestFriend_to_dialogRequestFriendSuccess"
+            app:destination="@id/dialogRequestFriendSuccess" />
     </dialog>
     <dialog
         android:id="@+id/dialogRequestFriendFail"
         android:name="com.hamcoding.screendetox.ui.dialogs.DialogRequestFriendFail"
         android:label="DialogRequestFriendFail"
-        tools:layout="@layout/dialog_request_friend_fail"/>
+        tools:layout="@layout/dialog_request_friend_fail" />
+    <dialog
+        android:id="@+id/dialogRequestFriendSuccess"
+        android:name="com.hamcoding.screendetox.ui.dialogs.DialogRequestFriendSuccess"
+        android:label="DialogRequestFriendSuccess">
+        <action
+            android:id="@+id/action_dialogRequestFriendSuccess_pop"
+            app:popUpTo="@id/navigation_rank"
+            app:popUpToInclusive="true" />
+    </dialog>
 
 </navigation>
