@@ -38,4 +38,9 @@
         <item name="android:textSize">11sp</item>
     </style>
 
+    <style name="notiDate">
+        <item name="android:textColor">@color/notiGray</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+
 </resources>

@@ -14,4 +14,6 @@
     <string name="requestFriendFail">다시 입력해주세요</string>
     <string name="requestFriendPositiveBtn">확인</string>
     <string name="RequestFrendNegativeBtn">취소</string>
+    <string name="notiInfo">친구 요청을 받았습니다.</string>
+    <string name="notiBtnSubmit">승인</string>
 </resources>

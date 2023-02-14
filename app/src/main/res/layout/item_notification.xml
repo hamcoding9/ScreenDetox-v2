@@ -3,23 +3,60 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp">
+
+    <ImageView
+        android:id="@+id/ivNotiIcon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_noti_friend_add"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvInfo"
-        style="@style/allCardTitle"
+        style="@style/statsInfo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="@string/notiInfo"
+        android:textSize="12sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@id/BtnSubmit"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="친구 요청을 하였습니다." />
+        app:layout_constraintStart_toEndOf="@id/ivNotiIcon"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvSenderEmail"
+        style="@style/statsInfo"
+        android:layout_width="0dp"
+        android:textSize="13sp"
+        android:layout_height="wrap_content"
+        android:text="@string/notiInfo"
+        app:layout_constraintEnd_toEndOf="@id/tvInfo"
+        app:layout_constraintStart_toStartOf="@id/tvInfo"
+        app:layout_constraintTop_toBottomOf="@id/tvInfo" />
+
+    <TextView
+        android:id="@+id/tvRequestedDate"
+        style="@style/notiDate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/notiInfo"
+        app:layout_constraintEnd_toEndOf="@id/tvInfo"
+        app:layout_constraintStart_toStartOf="@id/tvInfo"
+        app:layout_constraintTop_toBottomOf="@id/tvSenderEmail" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/BtnSubmit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="승인"
+        android:layout_width="60dp"
+        android:layout_height="20dp"
+        android:background="@color/allPrimary"
+        android:text="@string/notiBtnSubmit"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@id/tvRequestedDate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/tvInfo"
         app:layout_constraintTop_toTopOf="parent" />
