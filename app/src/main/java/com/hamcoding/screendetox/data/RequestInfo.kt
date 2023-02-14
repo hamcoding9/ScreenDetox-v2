@@ -4,6 +4,7 @@ import com.hamcoding.screendetox.util.DateFormatText
 import java.text.DateFormat
 
 data class RequestInfo(
+    val id: String = "",
     val senderEmail: String = "",
     val receiverEmail: String = "",
     val requestedDate: String = DateFormatText.getCurrentDate(),

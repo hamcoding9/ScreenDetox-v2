@@ -10,13 +10,17 @@ import com.hamcoding.screendetox.databinding.ItemNotificationBinding
 import com.hamcoding.screendetox.databinding.ItemStatsBinding
 import com.hamcoding.screendetox.ui.stats.AppAdapter.Companion.diffUtil
 
-class NotificationAdapter() : ListAdapter<String, NotificationAdapter.ViewHolder>(diffUtil) {
+class NotificationAdapter(private val onSubmitClick: (String) -> Unit) :
+    ListAdapter<String, NotificationAdapter.ViewHolder>(diffUtil) {
 
-    class ViewHolder(private val binding: ItemNotificationBinding) :
+    inner class ViewHolder(private val binding: ItemNotificationBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(data: String) {
             binding.tvInfo.text = data
+            binding.BtnSubmit.setOnClickListener {
+                onSubmitClick(data)
+            }
         }
     }
 
