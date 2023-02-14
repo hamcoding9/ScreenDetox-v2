@@ -19,7 +19,7 @@ import com.hamcoding.screendetox.util.DateFormatText
 
 class NotificationActivity : AppCompatActivity() {
     private lateinit var binding: ActivityNotificationBinding
-    private val onSubmitClick: (String) -> Unit = {
+    private val onSubmitClick: (RequestInfo) -> Unit = {
         submitRequest(it)
     }
 
@@ -41,11 +41,11 @@ class NotificationActivity : AppCompatActivity() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()) {
                     Log.d("친구", "snapShot exists")
-                    val notificationList = mutableListOf<String>()
+                    val notificationList = mutableListOf<RequestInfo>()
                     for (dataSnapshot in snapshot.children) {
                         val requestInfo = dataSnapshot.getValue(RequestInfo::class.java)
                         if (requestInfo?.requestStatus == RequestStatus.PENDING) {
-                            notificationList.add(requestInfo.senderEmail)
+                            notificationList.add(requestInfo)
                         }
                         Log.d("친구", "$requestInfo")
                     }
@@ -58,7 +58,7 @@ class NotificationActivity : AppCompatActivity() {
         })
     }
 
-    private fun submitRequest(senderEmail: String) {
+    private fun submitRequest(requestedData: RequestInfo) {
         val notificationQuery = Firebase.database.reference.child("requests")
             .orderByChild("receiverEmail")
             .equalTo(Firebase.auth.currentUser?.email!!)
@@ -67,8 +67,8 @@ class NotificationActivity : AppCompatActivity() {
                 if (snapshot.exists()) {
                     for (dataSnapshot in snapshot.children) {
                         val requestInfo = dataSnapshot.getValue(RequestInfo::class.java)
-                        if (requestInfo?.senderEmail == senderEmail) {
-                            val key = requestInfo.id
+                        if (requestInfo?.senderEmail == requestedData.senderEmail) {
+                            val key = requestedData.id
                             val requestDB = Firebase.database.reference.child("requests").child(key)
                             requestDB.addValueEventListener(object : ValueEventListener{
                                 override fun onDataChange(snapshot: DataSnapshot) {

@@ -15,7 +15,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:navigationIcon="@drawable/ic_noti_back"
-        app:title="알림"
+        app:title="친구 요청"
         app:titleTextAppearance="@style/rankTitle"
         app:titleTextColor="@color/white" />
 
@@ -23,7 +23,6 @@
         android:id="@+id/rvNoti"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="10dp"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"

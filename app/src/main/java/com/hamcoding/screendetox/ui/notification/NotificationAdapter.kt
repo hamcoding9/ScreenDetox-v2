@@ -6,18 +6,20 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.hamcoding.screendetox.data.App
+import com.hamcoding.screendetox.data.RequestInfo
 import com.hamcoding.screendetox.databinding.ItemNotificationBinding
 import com.hamcoding.screendetox.databinding.ItemStatsBinding
 import com.hamcoding.screendetox.ui.stats.AppAdapter.Companion.diffUtil
 
-class NotificationAdapter(private val onSubmitClick: (String) -> Unit) :
-    ListAdapter<String, NotificationAdapter.ViewHolder>(diffUtil) {
+class NotificationAdapter(private val onSubmitClick: (RequestInfo) -> Unit) :
+    ListAdapter<RequestInfo, NotificationAdapter.ViewHolder>(diffUtil) {
 
     inner class ViewHolder(private val binding: ItemNotificationBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(data: String) {
-            binding.tvInfo.text = data
+        fun bind(data: RequestInfo) {
+            binding.tvSenderEmail.text = data.senderEmail
+            binding.tvRequestedDate.text = data.requestedDate
             binding.BtnSubmit.setOnClickListener {
                 onSubmitClick(data)
             }
@@ -34,12 +36,12 @@ class NotificationAdapter(private val onSubmitClick: (String) -> Unit) :
     }
 
     companion object {
-        val diffUtil = object : DiffUtil.ItemCallback<String>() {
-            override fun areItemsTheSame(oldItem: String, newItem: String): Boolean {
+        val diffUtil = object : DiffUtil.ItemCallback<RequestInfo>() {
+            override fun areItemsTheSame(oldItem: RequestInfo, newItem: RequestInfo): Boolean {
                 return oldItem.hashCode() == newItem.hashCode()
             }
 
-            override fun areContentsTheSame(oldItem: String, newItem: String): Boolean {
+            override fun areContentsTheSame(oldItem: RequestInfo, newItem: RequestInfo): Boolean {
                 return oldItem == newItem
             }
 
