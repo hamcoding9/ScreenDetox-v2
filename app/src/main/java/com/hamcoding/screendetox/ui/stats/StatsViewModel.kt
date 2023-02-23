@@ -6,6 +6,5 @@ import com.hamcoding.screendetox.data.StatsRepository
 class StatsViewModel(private val statsRepository: StatsRepository) : ViewModel() {
 
     val appList = statsRepository.getAppList()
-    val totalUsage = statsRepository.getTotalTime()
 
 }

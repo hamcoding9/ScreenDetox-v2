@@ -8,7 +8,7 @@
 
         <variable
             name="viewModel"
-            type="com.hamcoding.screendetox.data.HomeViewModel" />
+            type="com.hamcoding.screendetox.ui.TopBoardViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -30,6 +30,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:text="@{viewModel.todayDateText}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/topBackground"
@@ -66,6 +67,7 @@
                         android:gravity="center" />
 
                     <TextView
+                        android:id="@+id/tvUserRank"
                         style="@style/allCardInfo"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -82,22 +84,21 @@
                     android:gravity="center"
                     android:orientation="vertical">
 
-                    <ProgressBar
-                        android:id="@+id/progressBarUser"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_marginTop="10dp"
-                        android:background="@drawable/circular_progressbar_all_background"
-                        android:indeterminateDrawable="@drawable/circular_progressbar_all_progress"
-                        android:max="24"
-                        android:progress="2" />
+                    <!--                    <ProgressBar
+                                            android:id="@+id/progressBarUser"
+                                            android:layout_width="50dp"
+                                            android:layout_height="50dp"
+                                            android:layout_marginTop="20dp"
+                                            android:background="@drawable/circular_progressbar_all_background"
+                                            android:indeterminateDrawable="@drawable/circular_progressbar_all_progress"
+                                            android:max="100" />-->
 
-                    <TextView
-                        style="@style/allCardInfo.Large"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="@string/allExampleUserName" />
+                    <!--                    <TextView-->
+                    <!--                        style="@style/allCardInfo.Large"-->
+                    <!--                        android:layout_width="match_parent"-->
+                    <!--                        android:layout_height="wrap_content"-->
+                    <!--                        android:gravity="center"-->
+                    <!--                        android:text="@string/allExampleUserName" />-->
 
                 </LinearLayout>
 
@@ -122,6 +123,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:gravity="center"
+                        android:text="@{viewModel.totalUsage}"
                         tools:text="09시간 05분" />
 
                 </LinearLayout>

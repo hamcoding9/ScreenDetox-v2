@@ -1,8 +1,10 @@
 package com.hamcoding.screendetox
 
 import android.app.Application
+import com.hamcoding.screendetox.data.RankRepository
 import com.hamcoding.screendetox.data.UsageProcessor
 import com.hamcoding.screendetox.data.UsageStorage
+import com.hamcoding.screendetox.data.UserRepository
 
 class ScreenApplication : Application() {
 
@@ -10,6 +12,13 @@ class ScreenApplication : Application() {
         super.onCreate()
         UsageStorage.getUsageMap(this)
         usageProcessor = UsageProcessor(this)
+        updateMyUsageDuration()
+    }
+
+    private fun updateMyUsageDuration() {
+        if (UserRepository.getUserUid() != null) {
+            RankRepository().updateMyUsageDuration(usageProcessor.totalTime)
+        }
     }
 
     companion object {

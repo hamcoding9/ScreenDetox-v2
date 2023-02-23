@@ -14,6 +14,7 @@ import com.google.firebase.ktx.app
 import com.hamcoding.screendetox.R
 import com.hamcoding.screendetox.data.RequestInfo
 import com.hamcoding.screendetox.data.RequestStatus
+import com.hamcoding.screendetox.data.UserRepository
 import com.hamcoding.screendetox.databinding.ActivityNotificationBinding
 import com.hamcoding.screendetox.util.DateFormatText
 
@@ -40,14 +41,12 @@ class NotificationActivity : AppCompatActivity() {
         notificationQuery.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()) {
-                    Log.d("친구", "snapShot exists")
                     val notificationList = mutableListOf<RequestInfo>()
                     for (dataSnapshot in snapshot.children) {
                         val requestInfo = dataSnapshot.getValue(RequestInfo::class.java)
                         if (requestInfo?.requestStatus == RequestStatus.PENDING) {
                             notificationList.add(requestInfo)
                         }
-                        Log.d("친구", "$requestInfo")
                     }
                     adapter.submitList(notificationList)
                 }
@@ -77,6 +76,8 @@ class NotificationActivity : AppCompatActivity() {
                                         data?.acceptedDate = DateFormatText.getCurrentDate()
                                         data?.requestStatus = RequestStatus.FRIEND
                                         requestDB.setValue(data)
+                                        Firebase.database.reference.child("users").child(data?.senderUid!!).child("friends").child(UserRepository.getUserUid()!!).setValue(UserRepository.getUserUid())
+                                        Firebase.database.reference.child("users").child(UserRepository.getUserUid()!!).child("friends").child(data.senderUid).setValue(data.senderUid)
                                     }
                                 }
 
