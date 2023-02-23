@@ -6,6 +6,7 @@ import java.text.DateFormat
 data class RequestInfo(
     val id: String = "",
     val senderEmail: String = "",
+    val senderUid: String = "",
     val receiverEmail: String = "",
     val requestedDate: String = DateFormatText.getCurrentDate(),
     var acceptedDate: String? = null,

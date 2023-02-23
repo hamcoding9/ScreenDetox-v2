@@ -163,7 +163,7 @@ class SignInActivity : AppCompatActivity() {
         val userRef = Firebase.database.reference.child("users")
         val uid = auth.currentUser?.uid!!
         val email = auth.currentUser?.email!!.toString()
-        val user = User(email, "코니Test", null)
+        val user = User(email,null)
         userRef.child(uid).setValue(user)
     }
 

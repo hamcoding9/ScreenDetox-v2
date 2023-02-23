@@ -25,7 +25,7 @@ class DatabaseRepository {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()) {
                     val requestRef = Firebase.database.reference.child("requests").push()
-                    val requestInfo = RequestInfo(requestRef.key!!, Firebase.auth.currentUser!!.email!!, email)
+                    val requestInfo = RequestInfo(requestRef.key!!, Firebase.auth.currentUser!!.email!!, UserRepository.getUserUid()!!, email)
                     requestRef.setValue(requestInfo)
                     Log.d("통신", "친구 요청 완료")
                     _isEmailExist.value = true

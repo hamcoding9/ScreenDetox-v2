@@ -7,6 +7,7 @@ import android.view.*
 import android.widget.EditText
 import android.widget.PopupMenu
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
@@ -17,14 +18,23 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.hamcoding.screendetox.R
-import com.hamcoding.screendetox.data.RequestInfo
+import com.hamcoding.screendetox.ScreenApplication
+import com.hamcoding.screendetox.data.*
 import com.hamcoding.screendetox.databinding.FragmentRankBinding
+import com.hamcoding.screendetox.ui.TopBoardViewModel
 import com.hamcoding.screendetox.ui.notification.NotificationActivity
 
 class RankFragment : Fragment() {
 
     private var _binding: FragmentRankBinding? = null
     private val binding get() = _binding!!
+    private val viewModel by viewModels<RankViewModel> {
+        RankViewModel.provideFactory(RankRepository())
+    }
+    private val boardViewModel: TopBoardViewModel by viewModels<TopBoardViewModel> {
+        TopBoardViewModel.provideFactory(StatsRepository(ScreenApplication.usageProcessor))
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -40,7 +50,17 @@ class RankFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initView()
         handleToolbar()
+    }
+
+    private fun initView() {
+        viewModel.loadFriendList()
+        val adapter = RankAdapter()
+        binding.rvRank.adapter = adapter
+        adapter.submitList(viewModel.items)
+        binding.rankTopBoard.viewModel = boardViewModel
+        binding.rankTopBoard.tvUserRank.text = viewModel.rankNumber.toString()
     }
 
     private fun handleToolbar() {
