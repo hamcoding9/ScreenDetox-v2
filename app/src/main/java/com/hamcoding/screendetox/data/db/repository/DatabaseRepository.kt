@@ -1,4 +1,4 @@
-package com.hamcoding.screendetox.data
+package com.hamcoding.screendetox.data.db.repository
 
 import android.util.Log
 import com.google.firebase.auth.ktx.auth
@@ -7,6 +7,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import com.hamcoding.screendetox.data.db.entity.RequestInfo
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 

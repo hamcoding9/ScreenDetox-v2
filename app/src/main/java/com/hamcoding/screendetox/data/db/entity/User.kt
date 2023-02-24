@@ -1,4 +1,4 @@
-package com.hamcoding.screendetox.data
+package com.hamcoding.screendetox.data.db.entity
 
 data class User(
     val email: String = "",

@@ -1,4 +1,4 @@
-package com.hamcoding.screendetox.data
+package com.hamcoding.screendetox.data.model
 
 import android.graphics.drawable.Drawable
 

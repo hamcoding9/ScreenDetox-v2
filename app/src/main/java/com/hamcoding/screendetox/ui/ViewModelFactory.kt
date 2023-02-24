@@ -3,7 +3,7 @@ package com.hamcoding.screendetox.ui
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.hamcoding.screendetox.ScreenApplication
-import com.hamcoding.screendetox.data.StatsRepository
+import com.hamcoding.screendetox.data.db.repository.StatsRepository
 import com.hamcoding.screendetox.ui.stats.StatsViewModel
 
 class ViewModelFactory : ViewModelProvider.Factory {

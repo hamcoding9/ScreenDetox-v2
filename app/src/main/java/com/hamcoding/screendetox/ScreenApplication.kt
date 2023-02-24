@@ -1,10 +1,10 @@
 package com.hamcoding.screendetox
 
 import android.app.Application
-import com.hamcoding.screendetox.data.RankRepository
-import com.hamcoding.screendetox.data.UsageProcessor
-import com.hamcoding.screendetox.data.UsageStorage
-import com.hamcoding.screendetox.data.UserRepository
+import com.hamcoding.screendetox.data.db.repository.RankRepository
+import com.hamcoding.screendetox.data.model.UsageProcessor
+import com.hamcoding.screendetox.data.model.UsageStorage
+import com.hamcoding.screendetox.data.db.repository.UserRepository
 
 class ScreenApplication : Application() {
 

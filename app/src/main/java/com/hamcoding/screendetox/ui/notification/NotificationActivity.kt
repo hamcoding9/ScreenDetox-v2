@@ -2,19 +2,15 @@ package com.hamcoding.screendetox.ui.notification
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
-import com.google.firebase.ktx.app
-import com.hamcoding.screendetox.R
-import com.hamcoding.screendetox.data.RequestInfo
-import com.hamcoding.screendetox.data.RequestStatus
-import com.hamcoding.screendetox.data.UserRepository
+import com.hamcoding.screendetox.data.db.entity.RequestInfo
+import com.hamcoding.screendetox.data.db.entity.RequestStatus
+import com.hamcoding.screendetox.data.db.repository.UserRepository
 import com.hamcoding.screendetox.databinding.ActivityNotificationBinding
 import com.hamcoding.screendetox.util.DateFormatText
 
@@ -76,8 +72,10 @@ class NotificationActivity : AppCompatActivity() {
                                         data?.acceptedDate = DateFormatText.getCurrentDate()
                                         data?.requestStatus = RequestStatus.FRIEND
                                         requestDB.setValue(data)
-                                        Firebase.database.reference.child("users").child(data?.senderUid!!).child("friends").child(UserRepository.getUserUid()!!).setValue(UserRepository.getUserUid())
-                                        Firebase.database.reference.child("users").child(UserRepository.getUserUid()!!).child("friends").child(data.senderUid).setValue(data.senderUid)
+                                        Firebase.database.reference.child("users").child(data?.senderUid!!).child("friends").child(
+                                            UserRepository.getUserUid()!!).setValue(UserRepository.getUserUid())
+                                        Firebase.database.reference.child("users").child(
+                                            UserRepository.getUserUid()!!).child("friends").child(data.senderUid).setValue(data.senderUid)
                                     }
                                 }
 

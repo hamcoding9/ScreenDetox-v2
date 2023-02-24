@@ -1,4 +1,4 @@
-package com.hamcoding.screendetox.data
+package com.hamcoding.screendetox.data.model
 
 import android.app.usage.UsageEvents
 import android.app.usage.UsageStatsManager

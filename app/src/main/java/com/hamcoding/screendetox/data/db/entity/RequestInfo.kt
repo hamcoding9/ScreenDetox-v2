@@ -1,7 +1,6 @@
-package com.hamcoding.screendetox.data
+package com.hamcoding.screendetox.data.db.entity
 
 import com.hamcoding.screendetox.util.DateFormatText
-import java.text.DateFormat
 
 data class RequestInfo(
     val id: String = "",

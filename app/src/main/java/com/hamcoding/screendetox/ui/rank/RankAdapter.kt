@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.hamcoding.screendetox.data.User
+import com.hamcoding.screendetox.data.db.entity.User
 import com.hamcoding.screendetox.databinding.ItemRankBinding
 
 class RankAdapter() : ListAdapter<User, RankAdapter.ViewHolder>(diffUtil) {

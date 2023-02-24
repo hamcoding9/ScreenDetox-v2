@@ -6,7 +6,7 @@
     <data>
         <variable
             name="user"
-            type="com.hamcoding.screendetox.data.User" />
+            type="com.hamcoding.screendetox.data.db.entity.User" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

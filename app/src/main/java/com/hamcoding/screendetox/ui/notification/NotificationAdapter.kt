@@ -5,11 +5,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.hamcoding.screendetox.data.App
-import com.hamcoding.screendetox.data.RequestInfo
+import com.hamcoding.screendetox.data.db.entity.RequestInfo
 import com.hamcoding.screendetox.databinding.ItemNotificationBinding
-import com.hamcoding.screendetox.databinding.ItemStatsBinding
-import com.hamcoding.screendetox.ui.stats.AppAdapter.Companion.diffUtil
 
 class NotificationAdapter(private val onSubmitClick: (RequestInfo) -> Unit) :
     ListAdapter<RequestInfo, NotificationAdapter.ViewHolder>(diffUtil) {

@@ -1,16 +1,11 @@
 package com.hamcoding.screendetox.ui.rank
 
-import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
-import com.hamcoding.screendetox.data.RankRepository
-import com.hamcoding.screendetox.data.User
-import com.hamcoding.screendetox.data.UserRepository
-import kotlinx.coroutines.launch
+import com.hamcoding.screendetox.data.db.repository.RankRepository
+import com.hamcoding.screendetox.data.db.entity.User
+import com.hamcoding.screendetox.data.db.repository.UserRepository
 
 class RankViewModel(private val rankRepository: RankRepository) : ViewModel() {
 

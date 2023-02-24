@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.hamcoding.screendetox.data.App
+import com.hamcoding.screendetox.data.model.App
 import com.hamcoding.screendetox.databinding.ItemStatsBinding
 
 class AppAdapter() : ListAdapter<App, AppAdapter.ViewHolder>(diffUtil) {

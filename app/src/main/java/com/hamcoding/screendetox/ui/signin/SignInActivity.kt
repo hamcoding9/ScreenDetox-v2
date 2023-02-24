@@ -24,7 +24,7 @@ import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.hamcoding.screendetox.BuildConfig
 import com.hamcoding.screendetox.R
-import com.hamcoding.screendetox.data.User
+import com.hamcoding.screendetox.data.db.entity.User
 import com.hamcoding.screendetox.databinding.ActivitySignInBinding
 import com.hamcoding.screendetox.ui.HomeActivity
 

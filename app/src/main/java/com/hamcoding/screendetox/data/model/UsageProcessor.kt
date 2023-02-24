@@ -1,15 +1,10 @@
-package com.hamcoding.screendetox.data
+package com.hamcoding.screendetox.data.model
 
 import android.content.Context
-import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.drawable.Drawable
-import android.provider.MediaStore
-import android.util.Log
 import androidx.appcompat.content.res.AppCompatResources
-import androidx.core.content.PackageManagerCompat
 import com.hamcoding.screendetox.R
-import com.hamcoding.screendetox.data.UsageStorage.usageMap
+import com.hamcoding.screendetox.data.model.UsageStorage.usageMap
 import com.hamcoding.screendetox.util.ConvertType
 import com.hamcoding.screendetox.util.TimeConverter
 
