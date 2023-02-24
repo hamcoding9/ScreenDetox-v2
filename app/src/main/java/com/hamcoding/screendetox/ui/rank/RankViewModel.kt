@@ -17,7 +17,7 @@ class RankViewModel(private val rankRepository: RankRepository) : ViewModel() {
         rankRepository.getFriendList()
         items.addAll(rankRepository.friendList)
         val userItem = items.find {
-            it.email == UserRepository.getUserEmail()
+            it.email == "${UserRepository.getUserEmail()}(나)"
         }
         rankNumber = items.indexOf(userItem) + 1
     }

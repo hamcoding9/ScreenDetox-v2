@@ -40,7 +40,8 @@ class RankRepository {
                             friendList.add(user!!)
                         }
                         if (userSnapshot.key == UserRepository.getUserUid()) {
-                            friendList.add(user!!)
+                            val myInfo = user?.copy(email = "${UserRepository.getUserEmail()}(나)")
+                            friendList.add(myInfo!!)
                         }
                     }
                 }
