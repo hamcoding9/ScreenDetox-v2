@@ -21,7 +21,7 @@
             app:navigationIcon="@drawable/ic_rank_menu"
             app:title="@string/rankTitle"
             app:titleCentered="true"
-            app:titleTextAppearance="@style/rankTitle"
+            app:titleTextAppearance="@style/Title18"
             app:titleTextColor="@color/white" />
 
         <include
