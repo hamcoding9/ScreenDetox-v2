@@ -16,4 +16,6 @@
     <string name="RequestFrendNegativeBtn">취소</string>
     <string name="notiInfo">친구 요청을 받았습니다.</string>
     <string name="notiBtnSubmit">승인</string>
+    <string name="permissionDescLarge">\'사용 정보 접근 허용\'을 하면\n앱 사용 통계를 확인할 수 있습니다.</string>
+    <string name="permissionDesc">Screen Detox는 스마트폰 중독 방지 앱으로,\n사용자의 디바이스에서 실행되는 앱을 측정합니다.\n디바이스의 [설정 > 사용정보 접근 허용]에서\n[Screen Detox]를 [사용]으로 바꾸어야 합니다.</string>
 </resources>
