@@ -1,11 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="rankTitle">
+    <style name="Title18">
         <item name="android:textSize">18sp</item>
     </style>
 
-    <style name="allTopDate">
+    <style name="TitleBlack20">
+        <item name="android:textSize">20dp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="TitleBlack20.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TitleBlack16">
+        <item name="android:textSize">16dp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="TitleWhite15">
         <item name="android:textSize">15sp</item>
         <item name="android:textColor">@color/white</item>
     </style>

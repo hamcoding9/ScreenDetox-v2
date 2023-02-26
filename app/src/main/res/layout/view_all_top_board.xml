@@ -26,7 +26,7 @@
 
         <TextView
             android:id="@+id/topDate"
-            style="@style/allTopDate"
+            style="@style/TitleWhite15"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center"

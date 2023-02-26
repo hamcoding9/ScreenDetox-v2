@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:navigationIcon="@drawable/ic_noti_back"
         app:title="친구 요청"
-        app:titleTextAppearance="@style/rankTitle"
+        app:titleTextAppearance="@style/Title18"
         app:titleTextColor="@color/white" />
 
     <androidx.recyclerview.widget.RecyclerView

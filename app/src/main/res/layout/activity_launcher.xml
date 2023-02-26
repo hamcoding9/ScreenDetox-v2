@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tvPermissionDescLarge"
+        style="@style/TitleBlack20.Bold"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:gravity="center"
+        android:text="@string/permissionDescLarge"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvPermission"
+        style="@style/TitleBlack16"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:gravity="center"
+        android:text="@string/permissionDesc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvPermissionDescLarge" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnPermission"
+        style="@style/TitleWhite15"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="70dp"
+        android:layout_marginEnd="70dp"
+        android:layout_marginBottom="75dp"
+        android:background="@color/allPrimary"
+        android:text="권한 요청"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
