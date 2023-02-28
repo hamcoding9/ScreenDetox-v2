@@ -14,7 +14,8 @@ class RankRepository {
     private val database = Firebase.database.reference
     private val friendUidList = mutableListOf<String>()
 
-    val friendList = mutableListOf<User>()
+    private var _friendList = mutableListOf<User>()
+    val friendList: List<User> get() = _friendList
 
     fun updateMyUsageDuration(usageDuration: Long) {
         val usageDuration = getMillisBreakdown(usageDuration, ConvertType.KR)
@@ -33,15 +34,15 @@ class RankRepository {
         database.child("users").addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()) {
-                    friendList.clear()
+                    _friendList.clear()
                     for (userSnapshot in snapshot.children) {
                         val user = userSnapshot.getValue(User::class.java)
                         if (friendUidList.contains(userSnapshot.key)) {
-                            friendList.add(user!!)
+                            _friendList.add(user!!)
                         }
                         if (userSnapshot.key == UserRepository.getUserUid()) {
                             val myInfo = user?.copy(email = "${UserRepository.getUserEmail()}(나)")
-                            friendList.add(myInfo!!)
+                            _friendList.add(myInfo!!)
                         }
                     }
                 }
@@ -50,7 +51,7 @@ class RankRepository {
             override fun onCancelled(error: DatabaseError) {}
 
         })
-        friendList.sortBy { it.usageDuration }
+        _friendList.sortBy { it.usageDuration }
     }
 
     private fun getEmailList() {
