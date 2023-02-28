@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/home_navigation"
+    android:id="@+id/home_navigation_graph"
     app:startDestination="@id/navigation_rank">
 
     <fragment
@@ -30,6 +30,9 @@
         <action
             android:id="@+id/action_dialogRequestFriend_to_dialogRequestFriendSuccess"
             app:destination="@id/dialogRequestFriendSuccess" />
+        <action
+            android:id="@+id/action_dialogRequestFriend_to_navigation_rank"
+            app:destination="@id/navigation_rank" />
     </dialog>
     <dialog
         android:id="@+id/dialogRequestFriendFail"
@@ -41,9 +44,8 @@
         android:name="com.hamcoding.screendetox.ui.dialogs.DialogRequestFriendSuccess"
         android:label="DialogRequestFriendSuccess">
         <action
-            android:id="@+id/action_dialogRequestFriendSuccess_pop"
-            app:popUpTo="@id/navigation_rank"
-            app:popUpToInclusive="true" />
+            android:id="@+id/action_dialogRequestFriendSuccess_to_navigation_rank"
+            app:destination="@id/navigation_rank" />
     </dialog>
 
 </navigation>

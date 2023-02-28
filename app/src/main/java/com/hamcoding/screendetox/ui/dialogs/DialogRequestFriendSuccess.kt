@@ -27,7 +27,8 @@ class DialogRequestFriendSuccess : DialogFragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.tvInfo.text = "요청이 완료되었습니다"
         binding.BtnPositive.setOnClickListener {
-            findNavController().navigate(R.id.action_dialogRequestFriendSuccess_pop)
+            val action = DialogRequestFriendSuccessDirections.actionDialogRequestFriendSuccessToNavigationRank()
+            findNavController().navigate(action)
         }
     }
 

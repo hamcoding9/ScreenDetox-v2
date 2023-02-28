@@ -106,7 +106,8 @@ class RankFragment : Fragment() {
     }
 
     private fun showDialogRequestFriend() {
-        findNavController().navigate(R.id.action_navigation_rank_to_dialogRequestFriend)
+        val action = RankFragmentDirections.actionNavigationRankToDialogRequestFriend()
+        findNavController().navigate(action)
     }
 
     override fun onDestroyView() {
