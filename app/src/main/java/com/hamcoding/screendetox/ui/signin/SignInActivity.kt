@@ -59,6 +59,7 @@ class SignInActivity : AppCompatActivity() {
                             .addOnCompleteListener(this) { task ->
                                 if (task.isSuccessful) {
                                     val user = auth.currentUser
+                                    Log.d("구글", "one tab 로그인 성공")
                                     registerUserInfo()
                                     moveToHomeScreen()
                                 } else {
@@ -113,6 +114,7 @@ class SignInActivity : AppCompatActivity() {
                     auth.signInWithCredential(firebaseCredential)
                         .addOnCompleteListener(this) { task ->
                             if (task.isSuccessful) {
+                                Log.d("구글", "legacy 로그인 성공")
                                 val user = auth.currentUser
                                 registerUserInfo()
                                 moveToHomeScreen()
@@ -132,7 +134,9 @@ class SignInActivity : AppCompatActivity() {
     }
 
     private fun displayLegacySignIn() {
-        gso = GoogleSignInOptions.Builder()
+        gso = GoogleSignInOptions.Builder(
+            GoogleSignInOptions.DEFAULT_SIGN_IN
+        )
             .requestIdToken(getString(R.string.default_web_client_id))
             .requestEmail()
             .build()
@@ -163,7 +167,7 @@ class SignInActivity : AppCompatActivity() {
         val userRef = Firebase.database.reference.child("users")
         val uid = auth.currentUser?.uid!!
         val email = auth.currentUser?.email!!.toString()
-        val user = User(email,null)
+        val user = User(email, null)
         userRef.child(uid).setValue(user)
     }
 

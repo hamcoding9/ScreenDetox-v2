@@ -5,10 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="viewModel"
-            type="com.hamcoding.screendetox.ui.TopBoardViewModel" />
+            type="com.hamcoding.screendetox.ui.common.UsageViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

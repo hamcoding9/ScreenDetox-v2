@@ -13,19 +13,20 @@ import com.hamcoding.screendetox.ScreenApplication
 import com.hamcoding.screendetox.data.db.repository.RankRepository
 import com.hamcoding.screendetox.data.db.repository.StatsRepository
 import com.hamcoding.screendetox.databinding.FragmentRankBinding
-import com.hamcoding.screendetox.ui.TopBoardViewModel
+import com.hamcoding.screendetox.ui.common.UsageViewModel
 import com.hamcoding.screendetox.ui.notification.NotificationActivity
 
 class RankFragment : Fragment() {
 
     private var _binding: FragmentRankBinding? = null
     private val binding get() = _binding!!
-    private val viewModel by viewModels<RankViewModel> {
-        RankViewModel.provideFactory(RankRepository())
+    private val viewModel by viewModels<UsageViewModel> {
+        UsageViewModel.provideFactory(
+            RankRepository(),
+            StatsRepository(ScreenApplication.usageProcessor)
+        )
     }
-    private val boardViewModel: TopBoardViewModel by viewModels<TopBoardViewModel> {
-        TopBoardViewModel.provideFactory(StatsRepository(ScreenApplication.usageProcessor))
-    }
+    private val adapter = RankAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,17 +43,26 @@ class RankFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        observeViewModel()
         initView()
         handleToolbar()
     }
 
     private fun initView() {
-        viewModel.loadFriendList()
-        val adapter = RankAdapter()
-        binding.rvRank.adapter = adapter
-        adapter.submitList(viewModel.items)
-        binding.rankTopBoard.viewModel = boardViewModel
-        binding.rankTopBoard.tvUserRank.text = viewModel.rankNumber.toString()
+        binding.apply {
+            rvRank.adapter = adapter
+            rankTopBoard.viewModel = viewModel
+        }
+        viewModel.loadRankingList()
+    }
+
+    private fun observeViewModel() {
+        viewModel.rankingList.observe(viewLifecycleOwner) {
+            adapter.submitList(it)
+        }
+        viewModel.rankNumber.observe(viewLifecycleOwner) {
+            binding.rankTopBoard.tvUserRank.text = it.toString()
+        }
     }
 
     private fun handleToolbar() {
