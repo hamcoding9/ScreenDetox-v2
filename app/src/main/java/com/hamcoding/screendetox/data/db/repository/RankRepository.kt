@@ -18,9 +18,9 @@ class RankRepository {
     val friendList: List<User> get() = _friendList
 
     fun updateMyUsageDuration(usageDuration: Long) {
-        val usageDuration = getMillisBreakdown(usageDuration, ConvertType.KR)
+        val usageDurationKor = getMillisBreakdown(usageDuration, ConvertType.KR)
         val userUpdate = hashMapOf<String, Any>(
-            "usageDuration" to usageDuration
+            "usageDuration" to usageDurationKor
         )
         database.child("users").child(UserRepository.getUserUid()!!).updateChildren(userUpdate)
     }
