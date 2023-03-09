@@ -5,6 +5,7 @@ import com.hamcoding.screendetox.data.db.repository.RankRepository
 import com.hamcoding.screendetox.data.model.UsageProcessor
 import com.hamcoding.screendetox.data.model.UsageStorage
 import com.hamcoding.screendetox.data.db.repository.UserRepository
+import com.hamcoding.screendetox.worker.WorkerManager
 
 class ScreenApplication : Application() {
 
@@ -13,6 +14,7 @@ class ScreenApplication : Application() {
         UsageStorage.getUsageMap(this)
         usageProcessor = UsageProcessor(this)
         updateMyUsageDuration()
+        WorkerManager.startWork(this)
     }
 
     private fun updateMyUsageDuration() {

@@ -47,6 +47,8 @@ android {
 }
 
 dependencies {
+    def work_version = "2.8.0"
+    implementation "androidx.work:work-runtime-ktx:$work_version"
     implementation platform('com.google.firebase:firebase-bom:31.2.0')
     implementation 'com.google.firebase:firebase-analytics-ktx'
     implementation 'com.google.firebase:firebase-auth-ktx'
