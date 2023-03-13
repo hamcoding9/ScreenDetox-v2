@@ -28,10 +28,6 @@ class RankFragment : Fragment() {
     }
     private val adapter = RankAdapter()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -43,7 +39,6 @@ class RankFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        observeViewModel()
         initView()
         handleToolbar()
     }
@@ -53,10 +48,7 @@ class RankFragment : Fragment() {
             rvRank.adapter = adapter
             rankTopBoard.viewModel = viewModel
         }
-        viewModel.loadRankingList()
-    }
 
-    private fun observeViewModel() {
         viewModel.rankingList.observe(viewLifecycleOwner) {
             adapter.submitList(it)
         }
