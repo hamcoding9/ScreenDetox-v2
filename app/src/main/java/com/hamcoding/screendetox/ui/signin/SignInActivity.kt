@@ -24,7 +24,7 @@ import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.hamcoding.screendetox.BuildConfig
 import com.hamcoding.screendetox.R
-import com.hamcoding.screendetox.data.db.entity.User
+import com.hamcoding.screendetox.data.firebase.entity.User
 import com.hamcoding.screendetox.databinding.ActivitySignInBinding
 import com.hamcoding.screendetox.ui.HomeActivity
 
@@ -167,7 +167,7 @@ class SignInActivity : AppCompatActivity() {
         val userRef = Firebase.database.reference.child("users")
         val uid = auth.currentUser?.uid!!
         val email = auth.currentUser?.email!!.toString()
-        val user = User(email, null)
+        val user = User(email, null, emptyMap())
         userRef.child(uid).setValue(user)
     }
 

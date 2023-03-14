@@ -1,4 +1,4 @@
-package com.hamcoding.screendetox.data.db.entity
+package com.hamcoding.screendetox.data.firebase.entity
 
 import com.hamcoding.screendetox.util.DateFormatText
 
@@ -11,7 +11,6 @@ data class RequestInfo(
     var acceptedDate: String? = null,
     var requestStatus: RequestStatus = RequestStatus.PENDING,
 )
-
 enum class RequestStatus{
     PENDING,
     FRIEND,

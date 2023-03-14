@@ -4,13 +4,14 @@ import android.content.Context
 import android.content.pm.PackageManager
 import androidx.appcompat.content.res.AppCompatResources
 import com.hamcoding.screendetox.R
-import com.hamcoding.screendetox.data.model.UsageStorage.usageMap
 import com.hamcoding.screendetox.util.ConvertType
 import com.hamcoding.screendetox.util.TimeConverter
+import dagger.hilt.android.qualifiers.ApplicationContext
+import javax.inject.Inject
 
-class UsageProcessor(private val context: Context) {
+class UsageProcessor @Inject constructor(@ApplicationContext private val context: Context) {
 
-    val totalTime: Long = usageMap.values.sum()
+    val totalTime: Long = UsageStorage.usageMap.values.sum()
 
     fun processUsage(usageMap: Map<String, Long>): List<App> {
         val appList = mutableListOf<App>()

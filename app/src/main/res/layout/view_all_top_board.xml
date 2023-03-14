@@ -7,7 +7,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.hamcoding.screendetox.ui.common.UsageViewModel" />
+            type="com.hamcoding.screendetox.ui.common.HomeViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

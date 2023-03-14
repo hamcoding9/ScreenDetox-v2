@@ -8,8 +8,9 @@ import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import androidx.work.WorkRequest
 import java.util.concurrent.TimeUnit
+import javax.inject.Inject
 
-object WorkerManager {
+class WorkerManager @Inject constructor() {
 
     fun startWork(appContext: Context) {
         Log.d("worker", "worker start")
@@ -18,7 +19,7 @@ object WorkerManager {
             .build()
 
         val uploadWorkRequest: WorkRequest =
-            PeriodicWorkRequestBuilder<UploadWorker>(1, TimeUnit.MINUTES)
+            PeriodicWorkRequestBuilder<UploadWorker>(30, TimeUnit.MINUTES)
                 .setConstraints(constraints)
                 .build()
 

@@ -7,20 +7,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.hamcoding.screendetox.ScreenApplication
-import com.hamcoding.screendetox.data.db.repository.RankRepository
-import com.hamcoding.screendetox.data.db.repository.StatsRepository
+import com.hamcoding.screendetox.data.firebase.repository.RankRepository
+import com.hamcoding.screendetox.data.firebase.repository.StatsRepository
 import com.hamcoding.screendetox.databinding.FragmentStatsBinding
-import com.hamcoding.screendetox.ui.common.UsageViewModel
+import com.hamcoding.screendetox.ui.common.HomeViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class StatsFragment : Fragment() {
     private var _binding: FragmentStatsBinding? = null
     private val binding get() = _binding!!
-    private val viewModel by viewModels<UsageViewModel> {
-        UsageViewModel.provideFactory(
-            RankRepository(),
-            StatsRepository(ScreenApplication.usageProcessor)
-        )
-    }
+    private val viewModel: HomeViewModel by viewModels()
     private val adapter = AppAdapter()
 
     override fun onCreateView(
@@ -44,7 +41,6 @@ class StatsFragment : Fragment() {
             statsTopBoard.viewModel = viewModel
         }
         viewModel.loadAppList()
-        viewModel.loadRankingList()
     }
 
     private fun observeViewModel() {
@@ -52,7 +48,7 @@ class StatsFragment : Fragment() {
             adapter.submitList(it)
         }
         viewModel.rankNumber.observe(viewLifecycleOwner) {
-            binding.statsTopBoard.tvUserRank.text = it.toString()
+            binding.statsTopBoard.tvUserRank.text = it
         }
     }
 

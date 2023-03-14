@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.hamcoding.screendetox.data.db.repository.DatabaseRepository
+import com.hamcoding.screendetox.data.firebase.repository.DatabaseRepository
 import kotlinx.coroutines.launch
 
 class DialogRequestFriendViewModel : ViewModel() {
