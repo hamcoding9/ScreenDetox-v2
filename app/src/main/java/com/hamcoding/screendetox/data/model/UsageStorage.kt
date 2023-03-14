@@ -12,6 +12,7 @@ object UsageStorage {
     val usageMap: Map<String, Long> = _usageMap
 
     fun getUsageMap(context: Context) {
+        _usageMap.clear()
         val beginTime = TimeConverter.getMidnightToday().timeInMillis
         val endTime = System.currentTimeMillis()
 
