@@ -8,9 +8,9 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
-import com.hamcoding.screendetox.data.db.entity.RequestInfo
-import com.hamcoding.screendetox.data.db.entity.RequestStatus
-import com.hamcoding.screendetox.data.db.repository.UserRepository
+import com.hamcoding.screendetox.data.firebase.entity.RequestInfo
+import com.hamcoding.screendetox.data.firebase.entity.RequestStatus
+import com.hamcoding.screendetox.data.firebase.repository.UserRepository
 import com.hamcoding.screendetox.databinding.ActivityNotificationBinding
 import com.hamcoding.screendetox.util.DateFormatText
 

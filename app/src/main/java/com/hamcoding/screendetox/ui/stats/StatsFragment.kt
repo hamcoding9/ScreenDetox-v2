@@ -7,8 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.hamcoding.screendetox.ScreenApplication
-import com.hamcoding.screendetox.data.db.repository.RankRepository
-import com.hamcoding.screendetox.data.db.repository.StatsRepository
+import com.hamcoding.screendetox.data.firebase.repository.RankRepository
+import com.hamcoding.screendetox.data.firebase.repository.StatsRepository
 import com.hamcoding.screendetox.databinding.FragmentStatsBinding
 import com.hamcoding.screendetox.ui.common.UsageViewModel
 

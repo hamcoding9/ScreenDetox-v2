@@ -1,11 +1,11 @@
-package com.hamcoding.screendetox.data.db.repository
+package com.hamcoding.screendetox.data.firebase.repository
 
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
-import com.hamcoding.screendetox.data.db.entity.User
+import com.hamcoding.screendetox.data.firebase.entity.User
 import com.hamcoding.screendetox.util.ConvertType
 import com.hamcoding.screendetox.util.TimeConverter.getMillisBreakdown
 

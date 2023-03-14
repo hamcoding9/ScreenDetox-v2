@@ -1,8 +1,7 @@
-package com.hamcoding.screendetox.data
+package com.hamcoding.screendetox.data.firebase.source
 
 import com.hamcoding.screendetox.BuildConfig
-import com.hamcoding.screendetox.data.db.entity.User
-import com.hamcoding.screendetox.data.db.entity.UserDto
+import com.hamcoding.screendetox.data.firebase.entity.UserDto
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

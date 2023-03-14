@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.hamcoding.screendetox.data.db.entity.RequestInfo
+import com.hamcoding.screendetox.data.firebase.entity.RequestInfo
 import com.hamcoding.screendetox.databinding.ItemNotificationBinding
 
 class NotificationAdapter(private val onSubmitClick: (RequestInfo) -> Unit) :

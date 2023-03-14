@@ -10,8 +10,8 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.hamcoding.screendetox.R
 import com.hamcoding.screendetox.ScreenApplication
-import com.hamcoding.screendetox.data.db.repository.RankRepository
-import com.hamcoding.screendetox.data.db.repository.StatsRepository
+import com.hamcoding.screendetox.data.firebase.repository.RankRepository
+import com.hamcoding.screendetox.data.firebase.repository.StatsRepository
 import com.hamcoding.screendetox.databinding.FragmentRankBinding
 import com.hamcoding.screendetox.ui.common.UsageViewModel
 import com.hamcoding.screendetox.ui.notification.NotificationActivity

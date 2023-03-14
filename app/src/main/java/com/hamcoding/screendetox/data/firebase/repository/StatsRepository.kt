@@ -1,4 +1,4 @@
-package com.hamcoding.screendetox.data.db.repository
+package com.hamcoding.screendetox.data.firebase.repository
 
 import com.hamcoding.screendetox.data.model.UsageProcessor
 import com.hamcoding.screendetox.data.model.UsageStorage

@@ -1,22 +1,19 @@
 package com.hamcoding.screendetox.ui.common
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
-import com.hamcoding.screendetox.data.ApiClient
-import com.hamcoding.screendetox.data.db.entity.User
-import com.hamcoding.screendetox.data.db.entity.UserDto
-import com.hamcoding.screendetox.data.db.repository.RankRepository
-import com.hamcoding.screendetox.data.db.repository.StatsRepository
-import com.hamcoding.screendetox.data.db.repository.UserRepository
+import com.hamcoding.screendetox.data.firebase.source.ApiClient
+import com.hamcoding.screendetox.data.firebase.entity.User
+import com.hamcoding.screendetox.data.firebase.repository.RankRepository
+import com.hamcoding.screendetox.data.firebase.repository.StatsRepository
+import com.hamcoding.screendetox.data.firebase.repository.UserRepository
 import com.hamcoding.screendetox.data.model.App
 import com.hamcoding.screendetox.util.DateFormatText
 import kotlinx.coroutines.launch
-import java.util.Locale.filter
 
 class UsageViewModel(
     private val rankRepository: RankRepository,

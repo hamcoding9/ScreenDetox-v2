@@ -1,8 +1,8 @@
-package com.hamcoding.screendetox.data.db.repository
+package com.hamcoding.screendetox.data.firebase.repository
 
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import com.hamcoding.screendetox.data.db.entity.User
+import com.hamcoding.screendetox.data.firebase.entity.User
 
 object UserRepository {
 

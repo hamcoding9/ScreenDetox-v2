@@ -1,4 +1,4 @@
-package com.hamcoding.screendetox.data.db.entity
+package com.hamcoding.screendetox.data.firebase.entity
 
 data class User(
     val email: String = "",
