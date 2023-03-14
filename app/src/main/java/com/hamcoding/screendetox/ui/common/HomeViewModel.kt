@@ -1,5 +1,6 @@
 package com.hamcoding.screendetox.ui.common
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -13,63 +14,44 @@ import com.hamcoding.screendetox.data.firebase.repository.StatsRepository
 import com.hamcoding.screendetox.data.firebase.repository.UserRepository
 import com.hamcoding.screendetox.data.model.App
 import com.hamcoding.screendetox.util.DateFormatText
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import java.nio.file.Files.find
+import javax.inject.Inject
 
-class UsageViewModel(
+@HiltViewModel
+class HomeViewModel @Inject constructor(
     private val rankRepository: RankRepository,
     private val statsRepository: StatsRepository
 ) : ViewModel() {
 
     private val _rankingList = MutableLiveData<List<User>>()
-    private val _rankNumber = MutableLiveData<Int>(1)
+    private val _rankNumber = MutableLiveData<String>("")
     private val _appList = MutableLiveData<List<App>>()
 
     val rankingList: LiveData<List<User>> = _rankingList
-    val rankNumber: LiveData<Int> = _rankNumber
+    val rankNumber: LiveData<String> = _rankNumber
     val appList: LiveData<List<App>> = _appList
     val totalUsage = statsRepository.getTotalTime()
     val todayDateText = DateFormatText.getCurrentDateShort()
 
     init {
-        //loadRankingList()
-        loadTestList()
+        loadRankingList()
     }
 
-    private fun loadTestList() {
+    private fun loadRankingList() {
         viewModelScope.launch {
-            val users = ApiClient.create().getUsers()
-            val friendList = users.filter {
-                it.key == UserRepository.getUserUid()
-            }.values.first().friends.keys.toMutableList()
-            friendList.add(UserRepository.getUserUid()!!)
-            _rankingList.value = users.filter {
-                friendList.contains(it.key)
-            }.values.toList()
-                .map {
-                    User(it.email, it.usageDuration)
-                }
+            launch {
+                _rankingList.value = rankRepository.loadRankingList()
+            }.join()
+            val userItem = _rankingList.value?.find {
+                it.email == UserRepository.getUserEmail()
+            }
+            _rankNumber.value = rankingList.value?.indexOf(userItem)?.plus(1).toString()
         }
-    }
-
-    fun loadRankingList() {
-        rankRepository.getFriendList()
-        _rankingList.value = rankRepository.friendList
-        val userItem = rankRepository.friendList.find {
-            it.email == "${UserRepository.getUserEmail()}(나)"
-        }
-        _rankNumber.value = rankRepository.friendList.indexOf(userItem) + 1
     }
 
     fun loadAppList() {
         _appList.value = statsRepository.getAppList()
-    }
-
-    companion object {
-        fun provideFactory(rankRepository: RankRepository, statsRepository: StatsRepository) =
-            viewModelFactory {
-                initializer {
-                    UsageViewModel(rankRepository, statsRepository)
-                }
-            }
     }
 }

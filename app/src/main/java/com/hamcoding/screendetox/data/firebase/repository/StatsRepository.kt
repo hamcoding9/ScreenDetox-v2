@@ -5,8 +5,9 @@ import com.hamcoding.screendetox.data.model.UsageStorage
 import com.hamcoding.screendetox.data.model.App
 import com.hamcoding.screendetox.util.ConvertType
 import com.hamcoding.screendetox.util.TimeConverter.getMillisBreakdown
+import javax.inject.Inject
 
-class StatsRepository(private val usageProcessor: UsageProcessor) {
+class StatsRepository @Inject constructor(private val usageProcessor: UsageProcessor) {
 
     fun getAppList(): List<App> {
         return usageProcessor.processUsage(UsageStorage.usageMap)

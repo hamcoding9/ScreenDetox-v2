@@ -13,19 +13,15 @@ import com.hamcoding.screendetox.ScreenApplication
 import com.hamcoding.screendetox.data.firebase.repository.RankRepository
 import com.hamcoding.screendetox.data.firebase.repository.StatsRepository
 import com.hamcoding.screendetox.databinding.FragmentRankBinding
-import com.hamcoding.screendetox.ui.common.UsageViewModel
+import com.hamcoding.screendetox.ui.common.HomeViewModel
 import com.hamcoding.screendetox.ui.notification.NotificationActivity
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class RankFragment : Fragment() {
-
     private var _binding: FragmentRankBinding? = null
     private val binding get() = _binding!!
-    private val viewModel by viewModels<UsageViewModel> {
-        UsageViewModel.provideFactory(
-            RankRepository(),
-            StatsRepository(ScreenApplication.usageProcessor)
-        )
-    }
+    private val viewModel: HomeViewModel by viewModels()
     private val adapter = RankAdapter()
 
     override fun onCreateView(
@@ -53,7 +49,7 @@ class RankFragment : Fragment() {
             adapter.submitList(it)
         }
         viewModel.rankNumber.observe(viewLifecycleOwner) {
-            binding.rankTopBoard.tvUserRank.text = it.toString()
+            binding.rankTopBoard.tvUserRank.text = it
         }
     }
 
