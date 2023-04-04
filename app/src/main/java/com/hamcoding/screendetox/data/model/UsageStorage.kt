@@ -9,9 +9,9 @@ import com.hamcoding.screendetox.util.TimeConverter
 object UsageStorage {
 
     private var _usageMap = mutableMapOf<String, Long>()
-    val usageMap: Map<String, Long> = _usageMap
+    val usageMap: Map<String, Long> get() = _usageMap
 
-    fun getUsageMap(context: Context) {
+    fun updateUsageInfo(context: Context) {
         _usageMap.clear()
         val beginTime = TimeConverter.getMidnightToday().timeInMillis
         val endTime = System.currentTimeMillis()
