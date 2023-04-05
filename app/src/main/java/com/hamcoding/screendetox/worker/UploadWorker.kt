@@ -5,7 +5,6 @@ import android.util.Log
 import androidx.work.Worker
 import androidx.work.WorkerParameters
 import com.hamcoding.screendetox.ScreenApplication
-import com.hamcoding.screendetox.data.firebase.repository.RankRepository
 import com.hamcoding.screendetox.data.firebase.repository.UpdateRepository
 import com.hamcoding.screendetox.data.firebase.repository.UserRepository
 import com.hamcoding.screendetox.data.model.UsageStorage
@@ -19,8 +18,7 @@ class UploadWorker(
     override fun doWork(): Result {
 
         if (UserRepository.getUserUid() != null) {
-            Log.d("worker", "I'm Working!")
-            UsageStorage.getUsageMap(context)
+            UsageStorage.updateUsageInfo(context)
             UpdateRepository.updateMyUsageDuration(ScreenApplication.usageProcessor.totalTime)
         }
         return Result.success()

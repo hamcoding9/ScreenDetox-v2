@@ -40,6 +40,8 @@ class RankFragment : Fragment() {
     }
 
     private fun initView() {
+        viewModel.loadRankingList()
+        binding.lifecycleOwner = viewLifecycleOwner
         binding.apply {
             rvRank.adapter = adapter
             rankTopBoard.viewModel = viewModel

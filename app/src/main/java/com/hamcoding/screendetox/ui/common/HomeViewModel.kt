@@ -30,16 +30,12 @@ class HomeViewModel @Inject constructor(
     private val _appList = MutableLiveData<List<App>>()
 
     val rankingList: LiveData<List<User>> = _rankingList
-    val rankNumber: LiveData<String> = _rankNumber
-    val appList: LiveData<List<App>> = _appList
+    val rankNumber: LiveData<String> get() = _rankNumber
+    val appList: LiveData<List<App>> get() = _appList
     val totalUsage = statsRepository.getTotalTime()
     val todayDateText = DateFormatText.getCurrentDateShort()
 
-    init {
-        loadRankingList()
-    }
-
-    private fun loadRankingList() {
+    fun loadRankingList() {
         viewModelScope.launch {
             launch {
                 _rankingList.value = rankRepository.loadRankingList()

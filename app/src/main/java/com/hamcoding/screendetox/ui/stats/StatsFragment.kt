@@ -36,7 +36,9 @@ class StatsFragment : Fragment() {
     }
 
     private fun initView() {
+        viewModel.loadRankingList()
         binding.apply {
+            lifecycleOwner = viewLifecycleOwner
             rvStats.adapter = adapter
             statsTopBoard.viewModel = viewModel
         }
