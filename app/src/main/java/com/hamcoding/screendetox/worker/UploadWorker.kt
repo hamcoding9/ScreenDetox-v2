@@ -18,7 +18,6 @@ class UploadWorker(
     override fun doWork(): Result {
 
         if (UserRepository.getUserUid() != null) {
-            Log.d("worker", "I'm Working!")
             UsageStorage.updateUsageInfo(context)
             UpdateRepository.updateMyUsageDuration(ScreenApplication.usageProcessor.totalTime)
         }

@@ -11,7 +11,7 @@ import javax.inject.Inject
 
 class UsageProcessor @Inject constructor(@ApplicationContext private val context: Context) {
 
-    val totalTime: Long = UsageStorage.usageMap.values.sum()
+    val totalTime: Long get() = UsageStorage.usageMap.values.sum()
 
     fun processUsage(usageMap: Map<String, Long>): List<App> {
         val appList = mutableListOf<App>()

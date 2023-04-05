@@ -14,13 +14,9 @@ class WorkerManager @Inject constructor() {
 
     fun startWork(appContext: Context) {
         Log.d("worker", "worker start")
-        val constraints = Constraints.Builder()
-            .setRequiredNetworkType(NetworkType.UNMETERED)
-            .build()
 
         val uploadWorkRequest: WorkRequest =
             PeriodicWorkRequestBuilder<UploadWorker>(30, TimeUnit.MINUTES)
-                .setConstraints(constraints)
                 .build()
 
         WorkManager
